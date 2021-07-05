@@ -1,16 +1,58 @@
 
-
+<div>
 <form >
+<div>
 
-        <input name='id' matInput [(ngModel)]="strInvoiceId" placeholder="Invoice Id" value="">
+    <input name='id' matInput [(ngModel)]="strInvoiceId" placeholder="Invoice Id" value="">
+</div>
+<div>
 
-        <input name='name' matInput [(ngModel)]="strCustName" placeholder="Customer Name" value="">
+    <input name='name' matInput [(ngModel)]="strCustName" placeholder="Customer Name" value="">
+</div>
 
-        
-        <input name='email' type="email" matInput [(ngModel)]="strEmail" placeholder="Email" value="">
+        <div>
 
-        
-        <input name='amount' type="number" matInput [(ngModel)]="dblAmount" placeholder="Amount" value="">
+            <input name='email' type="email" matInput [(ngModel)]="strEmail" placeholder="Email" value="">
+        </div>
+
+        <div>
+
+            <input name='amount' type="number" matInput [(ngModel)]="dblAmount" placeholder="Amount" value="">
+        </div>
 
     <div><button (click)='goHome()'>Save Invoice</button></div>
 </form>
+</div>
+
+<div *ngIf ='blnData'>
+    <div class="col-xl-12 col-md-12">
+        <h5>Invoice Lists</h5>
+            <div class="table-scroll">
+                    <table class="table table-striped">
+                       <thead>
+                                <tr>
+                                  <th>Created at</th>
+                                  <th >Name</th>
+                                  <th>Invoice ID</th>
+                                  <th>Email</th>
+                                  <th>Amount</th>
+                                </tr>
+                       </thead>
+                        <tbody>
+                                  <tr *ngFor="let item of dctInvoiceData; let i = index">
+                                    <td>{{item.dat_created|date}}</td>
+                                    <td>{{item.vchr_cust_name}}</td>
+                                    <td>{{item.vchr_invoice_id}}</td>
+                                    <td>{{item.vchr_email}}</td>
+                                    <td>{{item.dbl_amt}}</td>
+                                  </tr>                                 
+                         </tbody>
+                   </table>
+               </div>
+    </div>
+   
+</div>
+
+<div *ngIf ='blnData' class="row">
+    <button (click)='sendEmail()'>Send Mail</button>
+</div>

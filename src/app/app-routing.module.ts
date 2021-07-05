@@ -5,10 +5,11 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PaymentComponent } from './payment/payment.component';
 
 export const routes: Routes = [
-  { path: '',   redirectTo: '/homepage', pathMatch: 'full' }, // redirect to `home-component`
-  { path: 'homepage', component: HomeComponent },
-  { path: 'payment/:id', component: PaymentComponent }, // Wildcard route for a 404 page
-  { path: '**', component: PagenotfoundComponent },
+  // providing paths to respective pages
+  { path: '',   redirectTo: '/homepage', pathMatch: 'full' }, // redirect to homepage
+  { path: 'homepage', component: HomeComponent },// direct to home page
+  { path: 'payment/:id', component: PaymentComponent }, // direct to payment page
+  { path: '**', component: PagenotfoundComponent },// Wildcard route for a 404 page
 ];
 
 @NgModule({
