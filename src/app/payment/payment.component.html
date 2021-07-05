@@ -1,0 +1,13 @@
+<div class="container">
+
+    <h2 class="mb-5">Credit Card Payment Gateway</h2>
+    <div *ngIf ='blnPayment' class="col-md-4 mb-3">
+        <p> {{strName|uppercase}},</p>
+      <button (click)="checkout(dblAmount)" class="btn btn-primary btn-block">Pay {{dblAmount}} Rs</button>
+    </div>
+    <div *ngIf ='!blnPayment'>
+        <p>Payment Completed</p>
+    </div>
+  </div>
+  
+  
